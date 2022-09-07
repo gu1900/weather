@@ -1,0 +1,30 @@
+{
+    "name": "gu1900\/weather",
+    "description": "a weather sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "gu1900",
+            "email": "469224581@qq.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gu1900\\Weather\\": "src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.5"
+    },
+    "extra":{
+        "laravel":{
+            "providers":[
+                "Gu1900\\Weather\\ServiceProvider"
+            ]
+        }
+    }
+}
