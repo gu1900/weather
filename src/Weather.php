@@ -25,16 +25,20 @@ class Weather
         $this->guzzleOptions = $options;
     }
 
-    public function getWeather($city, string $type = 'base', string $format = 'json')
+    public function getWeather($city,string $type = 'base', string $format = 'json')
     {
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
+        $types = [
+            'live' => 'base',
+            'forecast' => 'all',
+        ];
 
         //1.对 '$format'与参数 $type 参数进行检查,不在范围内的抛出异常.
         if (!\in_array(\strtolower($format), ['xml', 'json'])) {
             throw new InvalidArgumentException('Invalid response format: '.$format);
         }
 
-        if (!\in_array(\strtolower($type), ['base', 'all'])) {
+        if (!\in_array(\strtolower($type), $types)) {
             throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
         }
 
@@ -62,5 +66,12 @@ class Weather
             // 并将调用异常作为 $previousException 传入。
             throw new HttpException($e->getMessage(), $e->getCode(), $e);
         }
+    }
+
+    public function getLiveWeather($city,$format='json'){
+        return $this->getWeather($city,'base',$format);
+    }
+    public function getForecastsWeather($city,$format='json'){
+        return $this->getWeather($city,'all',$format);
     }
 }
