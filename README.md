@@ -3,6 +3,7 @@
 <p align="center"> a weather sdk.</p>
 
 [![Tests](https://github.com/gu1900/weather/actions/workflows/tests.yml/badge.svg)](https://github.com/gu1900/weather/actions/workflows/tests.yml)
+![StyleCI build status](https://github.styleci.io/repos/533665031/shield) 
 ## Installing
 
 ```shell
